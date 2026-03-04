@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Star, ShoppingCart, Zap, ArrowRight, TrendingUp, AlertCircle } from 'lucide-react'
+import { Star, ShoppingCart, ArrowRight, TrendingUp, AlertCircle } from 'lucide-react'
 import { PRODUCTS, addToCart } from '../utils/cart'
 
 export default function Home() {

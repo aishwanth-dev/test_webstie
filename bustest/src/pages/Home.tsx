@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Bus, Calendar, Users, ArrowRight, ArrowLeftRight, AlertCircle } from 'lucide-react'
+import { Bus, Calendar, ArrowLeftRight } from 'lucide-react'
 
 const CITIES = ['Chennai', 'Bangalore', 'Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Hyderabad', 'Coimbatore', 'Kochi', 'Kolkata', 'Ahmedabad', 'Surat']
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Trash2, Plus, Minus, Globe } from 'lucide-react'
+import { Trash2, Globe } from 'lucide-react'
 import { getCart, saveCart } from '../utils/cart'
 
 const CURRENCIES: Record<string, { symbol: string; label: string }> = {

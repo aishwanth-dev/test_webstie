@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Star, ShoppingCart, ChevronLeft, AlertCircle } from 'lucide-react'
+import { Star, ShoppingCart, ChevronLeft } from 'lucide-react'
 import { PRODUCTS, addToCart } from '../utils/cart'
 
 export default function Product() {

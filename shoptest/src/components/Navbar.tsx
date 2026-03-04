@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ShoppingCart, Search, Zap, Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { ShoppingCart, Search, Zap } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { getCart } from '../utils/cart'
 
 export default function Navbar() {
     const [query, setQuery] = useState('')
     const [cartCount, setCartCount] = useState(0)
-    const [menuOpen, setMenuOpen] = useState(false)
+
     const navigate = useNavigate()
 
     useEffect(() => {

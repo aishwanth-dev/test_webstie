@@ -6,7 +6,7 @@ import { getCart } from '../utils/cart'
 export default function Checkout() {
     const [cart, setCart] = useState<any[]>([])
     const [done, setDone] = useState(false)
-    const [form, setForm] = useState({ name: '', email: '', card: '', expiry: '', cvv: '', address: '', city: '', zip: '' })
+    const [_form, setForm] = useState({ name: '', email: '', card: '', expiry: '', cvv: '', address: '', city: '', zip: '' })
 
     useEffect(() => { setCart(getCart()) }, [])
 
