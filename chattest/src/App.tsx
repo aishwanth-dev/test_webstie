@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import './index.css'
 
-const API_KEY = 'AIzaSyDViEmSm8WaXTzJ02AxyuPB7_4T7uGbMyE'
+const API_KEY = ''
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${API_KEY}`
 
 // ─────────────────────────────────────────────────
