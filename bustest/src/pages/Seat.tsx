@@ -50,16 +50,18 @@ export default function Seat() {
                     </div>
 
                     <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', fontSize: '0.8rem', color: 'var(--muted)' }}>
-                        {[['#1a2a3d', 'rgba(14,165,233,0.3)', 'Available'], ['var(--primary)', 'var(--primary)', 'Selected'], ['#1a1a1a', '#333', 'Booked']].map(([bg, border, label]) => (
+                        {[['#f8fafc', '#cbd5e1', '#475569', 'Available'], ['var(--primary)', 'var(--primary)', 'white', 'Selected'], ['#e2e8f0', '#cbd5e1', '#94a3b8', 'Booked']].map(([bg, border, color, label]) => (
                             <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                                <div style={{ width: 16, height: 16, background: bg, border: `2px solid ${border}`, borderRadius: 4 }} />
+                                <div style={{ width: 16, height: 16, background: bg, border: `2px solid ${border}`, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <span style={{ color, fontSize: '0.55rem', fontWeight: 900 }}>■</span>
+                                </div>
                                 {label}
                             </div>
                         ))}
                     </div>
 
                     <div className="glass" style={{ padding: '1.5rem' }}>
-                        <div style={{ textAlign: 'right', color: 'var(--muted)', fontSize: '0.8rem', paddingBottom: '0.75rem', borderBottom: '2px dashed rgba(255,255,255,0.08)', marginBottom: '1rem' }}>🚗 Driver</div>
+                        <div style={{ textAlign: 'right', color: 'var(--muted)', fontSize: '0.8rem', paddingBottom: '0.75rem', borderBottom: '2px dashed var(--border)', marginBottom: '1rem' }}>🚗 Driver</div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 8 }}>
                             {Array.from({ length: 36 }, (_, i) => i + 1).map(n => {
                                 const isBooked = BOOKED.includes(n)
@@ -68,11 +70,15 @@ export default function Seat() {
                                     <motion.button key={n} whileTap={!isBooked ? { scale: 0.92 } : undefined}
                                         onClick={() => toggleSeat(n)} disabled={isBooked}
                                         style={{
-                                            padding: '0.625rem', borderRadius: 8, border: `2px solid ${isBooked ? '#333' : isSel ? 'var(--primary)' : 'rgba(14,165,233,0.3)'}`,
-                                            background: isBooked ? '#111' : isSel ? 'var(--primary)' : 'rgba(14,165,233,0.07)',
-                                            color: isBooked ? '#444' : 'white', cursor: isBooked ? 'not-allowed' : 'pointer',
+                                            padding: '0.625rem', borderRadius: 8,
+                                            border: `2px solid ${isBooked ? '#cbd5e1' : isSel ? 'var(--primary)' : '#cbd5e1'}`,
+                                            background: isBooked ? '#e2e8f0' : isSel ? 'var(--primary)' : '#f8fafc',
+                                            color: isBooked ? '#94a3b8' : isSel ? 'white' : '#475569',
+                                            cursor: isBooked ? 'not-allowed' : 'pointer',
                                             fontSize: '0.8rem', fontWeight: 700, transition: 'all 0.15s', fontFamily: 'inherit'
                                         }}
+                                        onMouseEnter={e => { if (!isBooked && !isSel) { (e.currentTarget as HTMLButtonElement).style.background = '#dbeafe'; (e.currentTarget as HTMLButtonElement).style.borderColor = '#93c5fd' } }}
+                                        onMouseLeave={e => { if (!isBooked && !isSel) { (e.currentTarget as HTMLButtonElement).style.background = '#f8fafc'; (e.currentTarget as HTMLButtonElement).style.borderColor = '#cbd5e1' } }}
                                     >{n}</motion.button>
                                 )
                             })}

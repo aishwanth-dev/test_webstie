@@ -90,9 +90,9 @@ export default function Home() {
         return (
             <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: '1rem', minWidth: 280, boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <button onClick={() => setCalMonth(m => new Date(m.getFullYear(), m.getMonth() - 1))} style={{ background: 'none', border: '1px solid var(--border)', color: 'white', cursor: 'pointer', borderRadius: 6, padding: '0.25rem 0.5rem' }}>‹</button>
+                    <button onClick={() => setCalMonth(m => new Date(m.getFullYear(), m.getMonth() - 1))} style={{ background: 'none', border: '1px solid var(--border)', color: 'var(--text)', cursor: 'pointer', borderRadius: 6, padding: '0.25rem 0.5rem' }}>‹</button>
                     <span style={{ fontWeight: 700 }}>{monthName} {year}</span>
-                    <button onClick={() => setCalMonth(m => new Date(m.getFullYear(), m.getMonth() + 1))} style={{ background: 'none', border: '1px solid var(--border)', color: 'white', cursor: 'pointer', borderRadius: 6, padding: '0.25rem 0.5rem' }}>›</button>
+                    <button onClick={() => setCalMonth(m => new Date(m.getFullYear(), m.getMonth() + 1))} style={{ background: 'none', border: '1px solid var(--border)', color: 'var(--text)', cursor: 'pointer', borderRadius: 6, padding: '0.25rem 0.5rem' }}>›</button>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 4, marginBottom: '0.5rem' }}>
                     {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(d => <div key={d} style={{ textAlign: 'center', fontSize: '0.7rem', fontWeight: 700, color: 'var(--muted)', padding: '0.25rem' }}>{d}</div>)}

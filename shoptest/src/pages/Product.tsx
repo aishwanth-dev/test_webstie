@@ -72,9 +72,9 @@ export default function Product() {
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: 10, padding: '0.5rem' }}>
-                            <button onClick={() => setQty(Math.max(1, qty - 1))} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '1.2rem', width: 32, height: 32 }}>−</button>
+                            <button onClick={() => setQty(Math.max(1, qty - 1))} style={{ background: 'none', border: 'none', color: 'var(--text)', cursor: 'pointer', fontSize: '1.2rem', width: 32, height: 32 }}>−</button>
                             <span style={{ minWidth: 32, textAlign: 'center', fontWeight: 700 }}>{qty}</span>
-                            <button onClick={() => setQty(qty + 1)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '1.2rem', width: 32, height: 32 }}>+</button>
+                            <button onClick={() => setQty(qty + 1)} style={{ background: 'none', border: 'none', color: 'var(--text)', cursor: 'pointer', fontSize: '1.2rem', width: 32, height: 32 }}>+</button>
                         </div>
                         <motion.button
                             whileTap={{ scale: 0.97 }}

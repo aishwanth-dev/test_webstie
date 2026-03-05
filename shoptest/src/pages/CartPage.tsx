@@ -82,9 +82,9 @@ export default function CartPage() {
                                         <p style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>{sym}{item.price} each</p>
                                     </div>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: 8, padding: '0.25rem 0.5rem' }}>
-                                        <button onClick={() => changeQty(item.id, -1)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'white', width: 28, height: 28, fontSize: '1.1rem' }}>−</button>
+                                        <button onClick={() => changeQty(item.id, -1)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text)', width: 28, height: 28, fontSize: '1.1rem' }}>−</button>
                                         <span style={{ minWidth: 24, textAlign: 'center', fontWeight: 700 }}>{item.qty}</span>
-                                        <button onClick={() => changeQty(item.id, 1)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'white', width: 28, height: 28, fontSize: '1.1rem' }}>+</button>
+                                        <button onClick={() => changeQty(item.id, 1)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text)', width: 28, height: 28, fontSize: '1.1rem' }}>+</button>
                                     </div>
                                     <span style={{ fontWeight: 700, minWidth: 80, textAlign: 'right' }}>{sym}{(item.price * item.qty).toFixed(2)}</span>
                                     <button onClick={() => remove(item.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: '0.25rem', transition: 'color 0.2s' }}
