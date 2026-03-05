@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Star, ShoppingCart, ArrowRight, TrendingUp, AlertCircle } from 'lucide-react'
+import { Star, ShoppingCart, AlertCircle } from 'lucide-react'
 import { PRODUCTS, addToCart } from '../utils/cart'
 
 export default function Home() {
@@ -51,27 +51,23 @@ export default function Home() {
                 <motion.section
                     initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
                     style={{
-                        background: 'linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(245,158,11,0.08) 100%)',
-                        border: '1px solid rgba(124,58,237,0.2)', borderRadius: 24, padding: '4rem 3rem',
+                        background: 'linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%)',
+                        border: '1px solid #bfdbfe', borderRadius: 16, padding: '4rem 3rem',
                         marginBottom: '3rem', position: 'relative', overflow: 'hidden', textAlign: 'center'
                     }}
                 >
-                    {/* Floating orbs */}
-                    <div style={{ position: 'absolute', width: 300, height: 300, background: 'radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)', top: -100, left: -100, borderRadius: '50%' }} />
-                    <div style={{ position: 'absolute', width: 200, height: 200, background: 'radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)', bottom: -80, right: -60, borderRadius: '50%' }} />
-
-                    <span className="badge badge-purple" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
-                        <TrendingUp size={10} /> Summer Sale — Up to 50% Off
+                    <span className="badge badge-blue" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
+                        ✨ Summer Sale — Up to 50% Off
                     </span>
-                    <h1 style={{ fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 900, marginBottom: '1rem', lineHeight: 1.1 }}>
+                    <h1 style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', fontWeight: 900, marginBottom: '1rem', lineHeight: 1.1, color: '#0f172a' }}>
                         Shop the Future, <span className="shimmer-text">Today.</span>
                     </h1>
-                    <p style={{ color: 'var(--muted2)', fontSize: '1.1rem', marginBottom: '2rem', maxWidth: 500, margin: '0 auto 2rem' }}>
+                    <p style={{ color: '#475569', fontSize: '1.1rem', marginBottom: '2rem', maxWidth: 500, margin: '0 auto 2rem' }}>
                         Premium electronics, gaming gear, and accessories — curated for you.
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <Link to="/?cat=gaming" className="btn btn-primary">
-                            Shop Gaming <ArrowRight size={16} />
+                            Shop Gaming →
                         </Link>
                         <Link to="/?cat=electronics" className="btn btn-ghost">
                             Electronics
@@ -105,7 +101,7 @@ export default function Home() {
                     <Link to="/" className="btn btn-ghost" style={{ marginTop: '1rem' }}>Browse All</Link>
                 </div>
             ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.25rem' }}>
                     {products.map((p, i) => (
                         <motion.div
                             key={p.id}
@@ -113,18 +109,18 @@ export default function Home() {
                             transition={{ delay: i * 0.05 }}
                             className="glass"
                             style={{ overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                            whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
+                            whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
                         >
                             <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                                 <div style={{
-                                    height: 180, background: 'linear-gradient(135deg, rgba(124,58,237,0.1), rgba(245,158,11,0.05))',
+                                    height: 180, background: 'linear-gradient(135deg, #eff6ff, #f0fdf4)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '5rem',
                                     position: 'relative'
                                 }}>
                                     {p.emoji}
                                     {p.tag && (
-                                        <span className={`badge ${p.tag === 'SALE' ? 'badge-amber' : p.tag === 'HOT' ? 'badge-red' : p.tag === 'TOP' ? 'badge-green' : 'badge-purple'}`}
-                                            style={{ position: 'absolute', top: 12, left: 12 }}>
+                                        <span className={`badge ${p.tag === 'SALE' ? 'badge-red' : p.tag === 'HOT' ? 'badge-red' : p.tag === 'TOP' ? 'badge-green' : 'badge-blue'}`}
+                                            style={{ position: 'absolute', top: 10, left: 10 }}>
                                             {p.tag}
                                         </span>
                                     )}
@@ -132,19 +128,19 @@ export default function Home() {
                             </Link>
                             <div style={{ padding: '1.25rem' }}>
                                 <Link to={`/product/${p.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.25rem' }}>{p.name}</h3>
-                                    <p style={{ fontSize: '0.78rem', color: 'var(--muted)', marginBottom: '0.75rem', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
+                                    <h3 style={{ fontSize: '0.95rem', fontWeight: 800, marginBottom: '0.25rem', color: '#0f172a' }}>{p.name}</h3>
+                                    <p style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '0.75rem', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
                                 </Link>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
                                     <div style={{ display: 'flex', gap: 2 }}>
                                         {[1, 2, 3, 4, 5].map(s => (
-                                            <Star key={s} size={12} fill={s <= Math.floor(p.rating) ? '#f59e0b' : 'transparent'} color={s <= Math.floor(p.rating) ? '#f59e0b' : 'var(--muted)'} />
+                                            <Star key={s} size={12} fill={s <= Math.floor(p.rating) ? '#f59e0b' : 'transparent'} color={s <= Math.floor(p.rating) ? '#f59e0b' : '#cbd5e1'} />
                                         ))}
                                     </div>
-                                    <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>({p.reviews})</span>
+                                    <span style={{ fontSize: '0.75rem', color: '#64748b' }}>({p.reviews})</span>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--primary)' }}>${p.price}</span>
+                                    <span style={{ fontSize: '1.3rem', fontWeight: 900, color: '#2563eb' }}>${p.price}</span>
                                     <motion.button
                                         whileTap={{ scale: 0.95 }}
                                         className="btn btn-primary btn-sm"
